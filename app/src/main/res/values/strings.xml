@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TrickyWords</string>
     <string name="exitMessage">"Bye Bye TrickingWord!! "</string>
+    <string name="buttonReturn">Button to return</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_progress">Progress</string>
 </resources>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.ui.res.stringResource
 import com.justjump.trickywords.ui.screens.MainScreen
 
 class MainActivity : ComponentActivity() {
@@ -12,7 +13,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MainScreen {
                 finish()
-                showMessage(R.string.exitMessage.toString())
+                showMessage(getString(R.string.exitMessage))
             }
         }
     }
