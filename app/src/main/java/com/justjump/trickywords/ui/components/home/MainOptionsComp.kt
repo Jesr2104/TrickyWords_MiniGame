@@ -10,7 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun MainOptionsComp(onClick: () -> Unit) {
+fun MainOptionsComp(
+    onClick: (Int) -> Unit,
+    onClickProgress: () -> Unit,
+    onClickSettings: () -> Unit,
+    onClickClose: () -> Unit
+) {
 
     Column(
         modifier = Modifier
@@ -21,7 +26,7 @@ fun MainOptionsComp(onClick: () -> Unit) {
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {onClick()},
+                onClick = {onClick(1)},
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Play")
@@ -57,7 +62,7 @@ fun MainOptionsComp(onClick: () -> Unit) {
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {},
+                onClick = {onClickProgress()},
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Progress")
@@ -69,8 +74,8 @@ fun MainOptionsComp(onClick: () -> Unit) {
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {},
-                modifier = Modifier.fillMaxWidth(0.40f)
+                onClick = {onClickSettings()},
+                modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Setting")
             }
@@ -81,8 +86,8 @@ fun MainOptionsComp(onClick: () -> Unit) {
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {},
-                modifier = Modifier.fillMaxWidth(0.40f)
+                onClick = { onClickClose() },
+                modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Exit")
             }

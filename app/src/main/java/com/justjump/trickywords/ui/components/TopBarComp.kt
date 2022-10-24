@@ -10,15 +10,20 @@ import androidx.compose.ui.graphics.vector.ImageVector
 fun TopBarComp(
     title: String? = null,
     navigationIcon: ImageVector? = Icons.Filled.ArrowBack,
-    onClickToBack: () -> Unit
+    onClickToBack: () -> Unit,
 ) {
     TopAppBar(
-        title = { title },
-        navigationIcon = {
-            IconButton(onClick = { onClickToBack() }){
-                Icon(navigationIcon!!, "Button go back")
+        title = {
+            if (title != null) {
+                Text(title)
+            } else {
+                Text("")
             }
         },
-        backgroundColor = MaterialTheme.colors.primary
+        navigationIcon = {
+            IconButton(onClick = { onClickToBack() }) {
+                Icon(navigationIcon!!, "Button go back")
+            }
+        }
     )
 }

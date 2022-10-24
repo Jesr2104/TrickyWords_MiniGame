@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import com.justjump.trickywords.ui.components.TopBarComp
 
 @Composable
-fun SelectBookScreen(/*gameMode: Int*/ onClickToBack: () -> Unit) {
+fun SelectBookScreen(/*gameMode: Int,*/ onClickToBack: () -> Unit) {
     Scaffold(topBar = { TopBarComp(onClickToBack = onClickToBack) }) {
         it
         Column(

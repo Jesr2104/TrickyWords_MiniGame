@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TrickyWords</string>
+    <string name="exitMessage">"Bye Bye TrickingWord!! "</string>
 </resources>

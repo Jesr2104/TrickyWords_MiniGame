@@ -11,8 +11,15 @@ sealed class NavItem(
     //----------------------------------------------------------------------
     // list of routes
     //----------------------------------------------------------------------
-        object Home : NavItem("home_screen")
+        object Home : NavItem("home")
+
+        // Screen when the user select to play a: individual game, Battle and WordList
         object SelectBook : NavItem("select_book")
+
+        object Progress : NavItem("progress")
+        object Settings : NavItem("Settings")
+
+
 
     //----------------------------------------------------------------------
 
@@ -27,4 +34,5 @@ sealed class NavItem(
 }
 
 enum class NavArg(val Key: String, val navType: NavType<*>){
+
 }

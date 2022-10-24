@@ -9,15 +9,15 @@ import androidx.navigation.compose.rememberNavController
 import com.justjump.trickywords.ui.navigation.NavigationHost
 
 @Composable
-fun MainScreen() {
+fun MainScreen(onClickClose: () -> Unit) {
     val navController = rememberNavController()
 
     Scaffold(
         topBar = { },
         bottomBar = { }
-    ){ innerPadding  ->
+    ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
-            NavigationHost(navController)
+            NavigationHost(navController, onClickClose)
         }
     }
 }
