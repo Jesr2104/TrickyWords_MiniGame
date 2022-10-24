@@ -12,6 +12,7 @@ sealed class NavItem(
     // list of routes
     //----------------------------------------------------------------------
         object Home : NavItem("home_screen")
+        object SelectBook : NavItem("select_book")
 
     //----------------------------------------------------------------------
 

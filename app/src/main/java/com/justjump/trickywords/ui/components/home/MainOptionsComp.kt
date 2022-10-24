@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun MainOptionsComp() {
+fun MainOptionsComp(onClick: () -> Unit) {
 
     Column(
         modifier = Modifier
@@ -21,7 +21,7 @@ fun MainOptionsComp() {
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {},
+                onClick = {onClick()},
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Play")

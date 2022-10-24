@@ -9,7 +9,7 @@ import com.justjump.trickywords.ui.components.home.MainOptionsComp
 import com.justjump.trickywords.ui.components.home.TitleAppComp
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(onClick: () -> Unit) {
     Scaffold() { it
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -33,7 +33,7 @@ fun HomeScreen() {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center) {
-                MainOptionsComp()
+                MainOptionsComp(onClick)
             }
         }
     }
