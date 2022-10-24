@@ -47,12 +47,19 @@ android {
 }
 
 dependencies {
+    // Unit test
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'junit:junit:4.13.2'
+
     // mainCore compiler
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
     implementation 'androidx.activity:activity-compose:1.6.0'
     implementation "androidx.compose.ui:ui:$compose_ui_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
+
+    // Preview of the composable functions
+    implementation "androidx.compose.ui:ui-tooling-preview:1.2.1"
 
     // implementation for splash screen module
     implementation "androidx.core:core-splashscreen:1.0.0"
@@ -63,4 +70,5 @@ dependencies {
     // navigation for compose
     implementation "androidx.navigation:navigation-compose:2.5.2"
     implementation 'androidx.navigation:navigation-runtime-ktx:2.5.2'
+    implementation 'androidx.test.ext:junit-ktx:1.1.3'
 }
