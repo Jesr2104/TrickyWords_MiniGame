@@ -6,6 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.justjump.trickywords.ui.components.TopBarComp
+import com.justjump.trickywords.ui.components.selectBook.ViewPageBookSelectorComp
 
 @Composable
 fun SelectBookScreen(/*gameMode: Int,*/ onClickToBack: () -> Unit) {
@@ -23,7 +24,7 @@ fun SelectBookScreen(/*gameMode: Int,*/ onClickToBack: () -> Unit) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
-            ) { Text("BooksList") }
+            ) { ViewPageBookSelectorComp() }
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
