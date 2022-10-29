@@ -27,6 +27,8 @@ fun ViewPageBookSelectorComp() {
         ) { currentPage ->
                     ItemBookSelector(items[currentPage])
 
+            // test and setup github
+
 
             /*Column(
                 modifier = Modifier
