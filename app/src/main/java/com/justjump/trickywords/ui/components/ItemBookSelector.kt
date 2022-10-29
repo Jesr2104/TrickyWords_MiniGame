@@ -12,10 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.justjump.trickywords.domain.BookItemMenu
-import com.justjump.trickywords.ui.theme.tdarkgrey
+import com.justjump.trickywords.ui.theme.trans_dark_grey
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
@@ -26,56 +27,82 @@ fun ItemBookSelector(book: BookItemMenu) {
         shape = RoundedCornerShape(25.dp),
         elevation = 4.dp
     ) {
-        //Image(painter = painterResource(R.drawable.), contentDescription = null)
         GlideImage(
-            imageModel = "https://firebasestorage.googleapis.com/v0/b/trickyword-justjump.appspot.com/o/Book7.png?alt=media&token=3f490f84-3346-460d-bb94-cfddc36f8a1a",
-            contentScale = ContentScale.FillBounds,
+            imageModel = book.image,
+            contentScale = ContentScale.FillBounds
         )
 
-        Column(
-            modifier = Modifier
-                .padding(20.dp)
-        ) {
-
+        Column(modifier = Modifier.padding(20.dp)) {
             Row(
                 modifier = Modifier
-                    .weight(0.08f)
+                    .weight(0.06f)
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.End
             ) {
-                Column() {
+                Column {
                     Text(
                         text = book.rangeLesson,
                         fontSize = 12.sp,
-
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(5.dp, 5.dp, 5.dp, 0.dp))
+                            .background(trans_dark_grey)
+                            .padding(5.dp, 0.dp, 5.dp, 0.dp)
                     )
-                    Text(text = "Lessons #${book.numberOfLesson}", fontSize = 10.sp)
+                    Spacer(modifier = Modifier.height(2.dp))
+                    Text(
+                        text = "Lessons #${book.numberOfLesson}",
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(5.dp, 5.dp, 5.dp, 0.dp))
+                            .background(trans_dark_grey)
+                            .padding(5.dp, 0.dp, 5.dp, 0.dp)
+                    )
                 }
             }
-            Row(modifier = Modifier
-                .weight(0.82f)
-                //.background(Color.Cyan)
-                .fillMaxWidth()
+            Row(
+                modifier = Modifier
+                    .weight(0.84f)
+                    .fillMaxWidth()
             ) {
-                Column() {
+                Column {
                     Text(
                         text = book.bookName,
                         fontSize = 40.sp,
+                        fontWeight = FontWeight.SemiBold,
                         modifier = Modifier
-                            .background(tdarkgrey)
-                            .padding(2.dp)
-                            .clip(RoundedCornerShape(16.dp))
+                            .clip(RoundedCornerShape(15.dp, 15.dp, 15.dp, 0.dp))
+                            .background(trans_dark_grey)
+                            .padding(10.dp, 0.dp, 10.dp, 0.dp)
                     )
-                    Text(text = book.difficultLevel, fontSize = 20.sp)
+                    Spacer(modifier = Modifier.height(3.dp))
+                    Text(
+                        text = book.difficultLevel,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(5.dp, 5.dp, 5.dp, 0.dp))
+                            .background(trans_dark_grey)
+                            .padding(10.dp, 0.dp, 10.dp, 0.dp)
+                    )
                 }
             }
-            Row(modifier = Modifier
-                .weight(0.1f)
-                //.background(Color.Green)
-                .fillMaxWidth(),
+            Row(
+                modifier = Modifier
+                    .weight(0.1f)
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.Bottom
             ) {
-                Text(text = "ISBN: ${book.ISBN}", fontSize = 12.sp)
+                Text(
+                    text = "ISBN: ${book.ISBN}",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(5.dp, 5.dp, 5.dp, 0.dp))
+                        .background(trans_dark_grey)
+                        .padding(10.dp, 0.dp, 10.dp, 0.dp)
+                )
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -13,8 +14,8 @@ import com.justjump.trickywords.ui.components.selectBook.ViewPageBookSelectorCom
 
 @Composable
 fun SelectBookScreen(/*gameMode: Int,*/ onClickToBack: () -> Unit) {
-    Scaffold(topBar = { TopBarComp(onClickToBack = onClickToBack) }) {
-        it
+    Scaffold(topBar = { TopBarComp(onClickToBack = onClickToBack) })
+    { it
         Column(
             modifier = Modifier.fillMaxHeight(),
             verticalArrangement = Arrangement.Center
@@ -25,6 +26,7 @@ fun SelectBookScreen(/*gameMode: Int,*/ onClickToBack: () -> Unit) {
             ) { Text(
                 text = "Select a Book",
                 textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
                 fontSize = 30.sp,
                 modifier = Modifier
                     .padding(10.dp)

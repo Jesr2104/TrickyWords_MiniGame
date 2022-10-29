@@ -7,7 +7,7 @@ val Purple500 = Color(0xFF6200EE)
 val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 
-val tred = Color(0xFFff0000)
-
-val tdarkgrey = Color(0x999e9e9e)
-
+// My Colors project
+//---------------------------------------------------
+val trans_dark_grey = Color(0xbbBDBDBD)
+//---------------------------------------------------
