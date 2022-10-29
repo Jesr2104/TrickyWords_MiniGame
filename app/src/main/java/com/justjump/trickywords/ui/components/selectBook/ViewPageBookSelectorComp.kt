@@ -8,11 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.google.accompanist.pager.*
 import com.justjump.trickywords.domain.BookItemMenu
 import com.justjump.trickywords.domain.getBookList
+import com.justjump.trickywords.ui.components.ItemBookSelector
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -23,7 +27,6 @@ fun ViewPageBookSelectorComp() {
         modifier = Modifier
             .fillMaxSize()
             .padding(0.dp)
-            .background(color = colorResource(dev.chrisbanes.snapper.R.color.vector_tint_theme_color))
     ) {
         val items = getBookList()
         val pagerState = rememberPagerState()
@@ -31,9 +34,11 @@ fun ViewPageBookSelectorComp() {
         HorizontalPager(
             count = items.size,
             state =  pagerState,
-            modifier = Modifier.weight(1f)
         ) { currentPage ->
-            Column(
+                    ItemBookSelector(items[currentPage])
+
+
+            /*Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(50.dp)
@@ -47,7 +52,7 @@ fun ViewPageBookSelectorComp() {
                     text = items[currentPage].level,
                     style = MaterialTheme.typography.h4
                 )
-            }
+            }*/
         }
 
         HorizontalPagerIndicator(
@@ -58,28 +63,17 @@ fun ViewPageBookSelectorComp() {
         )
 
         Button(
-            onClick = {
+            onClick = {  },
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(15.dp)
+        ){ Text("Select book") }
 
-            }
-        ){
-            Text("Book Selected ${pagerState.currentPage}")
-        }
-
-        val coroutineScope = rememberCoroutineScope()
-        Button(
-            onClick = {
-                coroutineScope.launch {
-                    pagerState.animateScrollToPage(page = 2)
-                }
-            },
-            modifier = Modifier.align(Alignment.CenterHorizontally)
-        ) {
-            Text(text = "Scroll to the third page")
-        }
+        //${pagerState.currentPage}
     }
 }
 
-@OptIn(ExperimentalPagerApi::class)
+/*@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun HorizontalTabs(
     items: List<BookItemMenu>,

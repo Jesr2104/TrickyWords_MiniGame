@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import com.justjump.trickywords.ui.screens.HomeScreen
 import com.justjump.trickywords.ui.screens.ProgressScreen
 import com.justjump.trickywords.ui.screens.SelectBookScreen
-import com.justjump.trickywords.ui.screens.SettiingsScreen
+import com.justjump.trickywords.ui.screens.SettingsScreen
 import com.justjump.trickywords.ui.theme.TrickyWordsAppTheme
 
 @Composable
@@ -38,7 +38,7 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
 
             // Settings
             composable(route = NavItem.Settings.route) {
-                SettiingsScreen { navController.popBackStack() }
+                SettingsScreen { navController.popBackStack() }
             }
         }
     }

@@ -5,6 +5,9 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.components.selectBook.ViewPageBookSelectorComp
 
@@ -19,17 +22,18 @@ fun SelectBookScreen(/*gameMode: Int,*/ onClickToBack: () -> Unit) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
-            ) { Text("Title:") }
+            ) { Text(
+                text = "Select a Book",
+                textAlign = TextAlign.Center,
+                fontSize = 30.sp,
+                modifier = Modifier
+                    .padding(10.dp)
+            ) }
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) { ViewPageBookSelectorComp() }
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center
-            ) { Text("Button to select") }
         }
     }
 }

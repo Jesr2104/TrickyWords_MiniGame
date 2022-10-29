@@ -7,7 +7,7 @@ import com.justjump.trickywords.R
 import com.justjump.trickywords.ui.components.TopBarComp
 
 @Composable
-fun SettiingsScreen(onClickToBack: () -> Unit) {
+fun SettingsScreen(onClickToBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopBarComp(
