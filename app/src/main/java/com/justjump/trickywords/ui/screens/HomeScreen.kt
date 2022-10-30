@@ -15,7 +15,7 @@ fun HomeScreen(
     onClickSettings: () -> Unit,
     onClickClose: () -> Unit
 ) {
-    Scaffold() { it
+    Scaffold { it
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center

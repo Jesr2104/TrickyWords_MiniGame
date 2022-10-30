@@ -34,5 +34,5 @@ sealed class NavItem(
 }
 
 enum class NavArg(val Key: String, val navType: NavType<*>){
-
+    gameMode("gameMode", NavType.IntType),
 }
