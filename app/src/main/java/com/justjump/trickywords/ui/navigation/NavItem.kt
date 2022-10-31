@@ -1,6 +1,7 @@
 package com.justjump.trickywords.ui.navigation
 
 import androidx.navigation.NavType
+import androidx.navigation.navArgument
 
 sealed class NavItem(
     val baseRoute: String,
@@ -12,14 +13,11 @@ sealed class NavItem(
     // list of routes
     //----------------------------------------------------------------------
         object Home : NavItem("home")
-
-        // Screen when the user select to play a: individual game, Battle and WordList
-        object SelectBook : NavItem("select_book")
-
+        object SelectBook : NavItem("select_book", listOf(NavArg.gameMode)){
+            fun createNavRouter(gameMode: Int) = "$baseRoute/${gameMode}"
+        }
         object Progress : NavItem("progress")
         object Settings : NavItem("Settings")
-
-
 
     //----------------------------------------------------------------------
 
@@ -31,6 +29,8 @@ sealed class NavItem(
             .plus(argKeys)
             .joinToString("/")
     }
+
+    val args = navArgs.map { navArgument(it.Key) { type = it.navType } }
 }
 
 enum class NavArg(val Key: String, val navType: NavType<*>){

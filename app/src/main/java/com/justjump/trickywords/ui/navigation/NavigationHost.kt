@@ -1,5 +1,6 @@
 package com.justjump.trickywords.ui.navigation
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -19,7 +20,7 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
             composable(route = NavItem.Home.route) {
                 // this home screen control the events to jump to the different screens
                 HomeScreen(
-                    { navController.navigate(NavItem.SelectBook.route) },
+                    { navController.navigate(NavItem.SelectBook.createNavRouter(1)) },
                     { navController.navigate(NavItem.Progress.route) },
                     { navController.navigate(NavItem.Settings.route) },
                     { onClickClose() }
@@ -27,7 +28,13 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
             }
 
             // Selector of the book for the test
-            composable(route = NavItem.SelectBook.route) {
+            composable(
+                route = NavItem.SelectBook.route,
+                arguments = NavItem.SelectBook.args
+            ) { backStackEntry ->
+                val gameModeValue = backStackEntry.arguments?.getInt(NavArg.gameMode.Key)!!
+
+                Log.e("Jesr2104","${gameModeValue}")
                 SelectBookScreen { navController.popBackStack() }
             }
 
