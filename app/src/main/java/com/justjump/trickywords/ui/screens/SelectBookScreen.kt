@@ -13,7 +13,7 @@ import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.components.selectBook.ViewPageBookSelectorComp
 
 @Composable
-fun SelectBookScreen(/*gameMode: Int,*/ onClickToBack: () -> Unit) {
+fun SelectBookScreen(gameMode: Int, onClick: (Int) -> Unit, onClickToBack: () -> Unit) {
     Scaffold(topBar = { TopBarComp(onClickToBack = onClickToBack) })
     { it
         Column(
@@ -35,7 +35,7 @@ fun SelectBookScreen(/*gameMode: Int,*/ onClickToBack: () -> Unit) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
-            ) { ViewPageBookSelectorComp() }
+            ) { ViewPageBookSelectorComp(gameMode, onClick) }
         }
     }
 }

@@ -17,7 +17,11 @@ sealed class NavItem(
             fun createNavRouter(gameMode: Int) = "$baseRoute/${gameMode}"
         }
         object Progress : NavItem("progress")
-        object Settings : NavItem("Settings")
+        object Settings : NavItem("settings")
+
+        object PlayGame : NavItem("play_game", listOf(NavArg.esto)){
+            fun createNavRouter(esto: Int) = "$baseRoute/${esto}"
+        }
 
     //----------------------------------------------------------------------
 
@@ -35,4 +39,5 @@ sealed class NavItem(
 
 enum class NavArg(val Key: String, val navType: NavType<*>){
     gameMode("gameMode", NavType.IntType),
+    esto("gameMode", NavType.IntType)
 }

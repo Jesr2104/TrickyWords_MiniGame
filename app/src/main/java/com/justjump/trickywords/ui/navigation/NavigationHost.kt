@@ -5,10 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.justjump.trickywords.ui.screens.HomeScreen
-import com.justjump.trickywords.ui.screens.ProgressScreen
-import com.justjump.trickywords.ui.screens.SelectBookScreen
-import com.justjump.trickywords.ui.screens.SettingsScreen
+import com.justjump.trickywords.ui.screens.*
 import com.justjump.trickywords.ui.theme.TrickyWordsAppTheme
 
 @Composable
@@ -20,7 +17,7 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
             composable(route = NavItem.Home.route) {
                 // this home screen control the events to jump to the different screens
                 HomeScreen(
-                    { navController.navigate(NavItem.SelectBook.createNavRouter(1)) },
+                    { navController.navigate(NavItem.SelectBook.createNavRouter(it)) },
                     { navController.navigate(NavItem.Progress.route) },
                     { navController.navigate(NavItem.Settings.route) },
                     { onClickClose() }
@@ -34,8 +31,13 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
             ) { backStackEntry ->
                 val gameModeValue = backStackEntry.arguments?.getInt(NavArg.gameMode.Key)!!
 
-                Log.e("Jesr2104","${gameModeValue}")
-                SelectBookScreen { navController.popBackStack() }
+                Log.e("Jesr2104", "${gameModeValue}")
+
+                SelectBookScreen(
+                    gameModeValue,
+                    { navController.navigate(NavItem.PlayGame.createNavRouter(it)) },
+                    { navController.popBackStack() }
+                )
             }
 
             // Progress Screen
@@ -46,6 +48,14 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
             // Settings
             composable(route = NavItem.Settings.route) {
                 SettingsScreen { navController.popBackStack() }
+            }
+
+            composable(
+                route = NavItem.PlayGame.route,
+                arguments = NavItem.PlayGame.args
+            ){ backStackEntry ->
+                val gameModeValue = backStackEntry.arguments?.getInt(NavArg.esto.Key)!!
+                PlayGame(gameModeValue)
             }
         }
     }

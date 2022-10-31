@@ -13,7 +13,7 @@ import com.justjump.trickywords.ui.components.ItemBookSelector
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun ViewPageBookSelectorComp() {
+fun ViewPageBookSelectorComp(gameMode: Int, onClick: (Int) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -40,13 +40,15 @@ fun ViewPageBookSelectorComp() {
         )
 
         Button(
-            onClick = {  },
+            onClick = {
+                onClick(pagerState.currentPage)
+                //onClick(arrayOf(1, pagerState.currentPage))
+            },
             modifier = Modifier
                 .align(Alignment.CenterHorizontally),
             shape = RoundedCornerShape(25)
         ){
             Text("Select book")
-            //${pagerState.currentPage}
         }
     }
 }
