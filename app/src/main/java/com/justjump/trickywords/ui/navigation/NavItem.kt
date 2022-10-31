@@ -13,16 +13,15 @@ sealed class NavItem(
     // list of routes
     //----------------------------------------------------------------------
         object Home : NavItem("home")
-        object SelectBook : NavItem("select_book", listOf(NavArg.gameMode)){
+        object SelectBook : NavItem("select_book", listOf(NavArg.GameMode)){
             fun createNavRouter(gameMode: Int) = "$baseRoute/${gameMode}"
         }
         object Progress : NavItem("progress")
         object Settings : NavItem("settings")
 
-        object PlayGame : NavItem("play_game", listOf(NavArg.esto)){
+        object PlayGame : NavItem("play_game")/*, listOf(NavArg.esto)){
             fun createNavRouter(esto: Int) = "$baseRoute/${esto}"
-        }
-
+        }*/
     //----------------------------------------------------------------------
 
     // this run create the navigation route with its parameters
@@ -38,6 +37,6 @@ sealed class NavItem(
 }
 
 enum class NavArg(val Key: String, val navType: NavType<*>){
-    gameMode("gameMode", NavType.IntType),
+    GameMode("gameMode", NavType.IntType),
     esto("gameMode", NavType.IntType)
 }

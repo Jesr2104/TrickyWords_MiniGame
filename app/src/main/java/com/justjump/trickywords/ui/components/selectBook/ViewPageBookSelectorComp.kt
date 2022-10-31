@@ -8,12 +8,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
+import com.justjump.trickywords.domain.InfoPlayGame
 import com.justjump.trickywords.domain.getBookList
 import com.justjump.trickywords.ui.components.ItemBookSelector
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun ViewPageBookSelectorComp(gameMode: Int, onClick: (Int) -> Unit) {
+fun ViewPageBookSelectorComp(gameMode: Int, onClick: (InfoPlayGame) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,7 +42,7 @@ fun ViewPageBookSelectorComp(gameMode: Int, onClick: (Int) -> Unit) {
 
         Button(
             onClick = {
-                onClick(pagerState.currentPage)
+                onClick(InfoPlayGame(gameMode, pagerState.currentPage))
                 //onClick(arrayOf(1, pagerState.currentPage))
             },
             modifier = Modifier

@@ -11,8 +11,7 @@ data class BookItemMenu(
     val numberOfLesson: Int,
     val rangeLesson: String,
     val image: String
-
-    ): Parcelable
+): Parcelable
 
 fun getBookList() = listOf(
     BookItemMenu(

@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.justjump.trickywords.domain.InfoPlayGame
 import com.justjump.trickywords.ui.screens.*
 import com.justjump.trickywords.ui.theme.TrickyWordsAppTheme
 
@@ -29,13 +30,19 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
                 route = NavItem.SelectBook.route,
                 arguments = NavItem.SelectBook.args
             ) { backStackEntry ->
-                val gameModeValue = backStackEntry.arguments?.getInt(NavArg.gameMode.Key)!!
-
-                Log.e("Jesr2104", "${gameModeValue}")
+                val gameModeValue = backStackEntry.arguments?.getInt(NavArg.GameMode.Key)!!
 
                 SelectBookScreen(
                     gameModeValue,
-                    { navController.navigate(NavItem.PlayGame.createNavRouter(it)) },
+                    {
+                        navController.currentBackStackEntry?.savedStateHandle?.set(
+                            key = "MyKey",
+                            value = it
+                        )
+                        Log.e("Jesr2104 =>","${ it.gameMode }")
+                        Log.e("Jesr2104 =>","${ it.bookNumber }")
+                        navController.navigate(NavItem.PlayGame.route)
+                    },
                     { navController.popBackStack() }
                 )
             }
@@ -50,12 +57,9 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
                 SettingsScreen { navController.popBackStack() }
             }
 
-            composable(
-                route = NavItem.PlayGame.route,
-                arguments = NavItem.PlayGame.args
-            ){ backStackEntry ->
-                val gameModeValue = backStackEntry.arguments?.getInt(NavArg.esto.Key)!!
-                PlayGame(gameModeValue)
+            composable( route = NavItem.PlayGame.route ) {
+                val result = navController.previousBackStackEntry?.savedStateHandle?.get<InfoPlayGame>("MyKey")
+                PlayGame(result)
             }
         }
     }
