@@ -1,5 +1,6 @@
 package com.justjump.trickywords.ui.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -8,6 +9,7 @@ import com.justjump.trickywords.ui.components.home.LogoComp
 import com.justjump.trickywords.ui.components.home.MainOptionsComp
 import com.justjump.trickywords.ui.components.home.TitleAppComp
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
     onClick_Play_Battle_WordList: (Int) -> Unit,
@@ -15,7 +17,7 @@ fun HomeScreen(
     onClickSettings: () -> Unit,
     onClickClose: () -> Unit
 ) {
-    Scaffold { it
+    Scaffold {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center
@@ -23,22 +25,30 @@ fun HomeScreen(
             // Title
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center) {
+                horizontalArrangement = Arrangement.Center
+            ) {
                 TitleAppComp("TrickyWords")
             }
 
             // Logo
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center) {
+                horizontalArrangement = Arrangement.Center
+            ) {
                 LogoComp()
             }
 
             // Main Menu
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center) {
-                MainOptionsComp(onClick_Play_Battle_WordList, onClickProgress, onClickSettings, onClickClose)
+                horizontalArrangement = Arrangement.Center
+            ) {
+                MainOptionsComp(
+                    onClick_Play_Battle_WordList,
+                    onClickProgress,
+                    onClickSettings,
+                    onClickClose
+                )
             }
         }
     }

@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
 import com.justjump.trickywords.domain.InfoPlayGame
-import com.justjump.trickywords.domain.getBookList
 import com.justjump.trickywords.ui.components.ItemBookSelector
+import com.justjump.trickywords.utilities.getBookList
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
@@ -25,7 +25,7 @@ fun ViewPageBookSelectorComp(gameMode: Int, onClick: (InfoPlayGame) -> Unit) {
 
         HorizontalPager(
             count = items.size,
-            state =  pagerState,
+            state = pagerState,
         ) { currentPage ->
             Column {
                 // show the selector on the book
@@ -47,7 +47,7 @@ fun ViewPageBookSelectorComp(gameMode: Int, onClick: (InfoPlayGame) -> Unit) {
             modifier = Modifier
                 .align(Alignment.CenterHorizontally),
             shape = RoundedCornerShape(25)
-        ){
+        ) {
             Text("Select book")
         }
     }

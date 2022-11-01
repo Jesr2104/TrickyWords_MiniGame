@@ -10,11 +10,9 @@ import com.justjump.trickywords.ui.navigation.NavigationHost
 
 @Composable
 fun MainScreen(onClickClose: () -> Unit) {
-    val navController = rememberNavController()
-
-    Scaffold() { innerPadding ->
+    Scaffold { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
-            NavigationHost(navController, onClickClose)
+            NavigationHost(rememberNavController(), onClickClose)
         }
     }
 }

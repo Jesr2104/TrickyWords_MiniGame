@@ -30,12 +30,10 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
                 arguments = NavItem.SelectBook.args
             ) { backStackEntry ->
                 val gameModeValue = backStackEntry.arguments?.getInt(NavArg.GameMode.Key)!!
-                SelectBookScreen(
-                    gameModeValue,
+                SelectBookScreen(gameModeValue,
                     {
                         navController.currentBackStackEntry?.savedStateHandle?.set(
-                            key = "infoGame",
-                            value = it
+                            key = "infoGame", value = it
                         )
                         navController.navigate(NavItem.PlayGame.route)
                     },

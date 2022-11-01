@@ -16,70 +16,74 @@ fun MainOptionsComp(
     onClickSettings: () -> Unit,
     onClickClose: () -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()) {
-
+    Column(modifier = Modifier.fillMaxWidth())
+    {
+        // Option to Play Game
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {onClick(1)},
+                onClick = { onClick(1) },
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Play")
             }
         }
 
+        // Option to Battle
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {onClick(2)},
+                onClick = { onClick(2) },
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Battle")
             }
         }
 
+        // Option to Word List
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {onClick(3)},
+                onClick = { onClick(3) },
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Word list")
             }
         }
 
+        // Option to Show Progress
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {onClickProgress()},
+                onClick = { onClickProgress() },
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Progress")
             }
         }
 
+        // Option to Settings
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {onClickSettings()},
+                onClick = { onClickSettings() },
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Setting")
             }
         }
 
+        // Option to Exit
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
