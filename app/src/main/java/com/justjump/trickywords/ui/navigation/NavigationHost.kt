@@ -1,6 +1,5 @@
 package com.justjump.trickywords.ui.navigation
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -25,22 +24,19 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
                 )
             }
 
-            // Selector of the book for the test
+            // Selector of the book for the test this one is for: Play / Battle / WordList
             composable(
                 route = NavItem.SelectBook.route,
                 arguments = NavItem.SelectBook.args
             ) { backStackEntry ->
                 val gameModeValue = backStackEntry.arguments?.getInt(NavArg.GameMode.Key)!!
-
                 SelectBookScreen(
                     gameModeValue,
                     {
                         navController.currentBackStackEntry?.savedStateHandle?.set(
-                            key = "MyKey",
+                            key = "infoGame",
                             value = it
                         )
-                        Log.e("Jesr2104 =>","${ it.gameMode }")
-                        Log.e("Jesr2104 =>","${ it.bookNumber }")
                         navController.navigate(NavItem.PlayGame.route)
                     },
                     { navController.popBackStack() }
@@ -57,9 +53,11 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
                 SettingsScreen { navController.popBackStack() }
             }
 
-            composable( route = NavItem.PlayGame.route ) {
-                val result = navController.previousBackStackEntry?.savedStateHandle?.get<InfoPlayGame>("MyKey")
-                PlayGame(result)
+            // Windows to chose between: Difficult -> Play / Battle / WordList
+            composable(route = NavItem.PlayGame.route) {
+                PlayGame(
+                    navController.previousBackStackEntry?.savedStateHandle?.get<InfoPlayGame>("infoGame")
+                ) { navController.popBackStack() }
             }
         }
     }

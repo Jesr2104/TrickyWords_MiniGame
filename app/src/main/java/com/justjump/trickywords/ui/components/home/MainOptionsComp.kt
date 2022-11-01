@@ -16,7 +16,6 @@ fun MainOptionsComp(
     onClickSettings: () -> Unit,
     onClickClose: () -> Unit
 ) {
-
     Column(
         modifier = Modifier
             .fillMaxWidth()) {
@@ -38,7 +37,7 @@ fun MainOptionsComp(
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {},
+                onClick = {onClick(2)},
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Battle")
@@ -50,7 +49,7 @@ fun MainOptionsComp(
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = {},
+                onClick = {onClick(3)},
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Word list")

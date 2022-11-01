@@ -42,8 +42,7 @@ fun ViewPageBookSelectorComp(gameMode: Int, onClick: (InfoPlayGame) -> Unit) {
 
         Button(
             onClick = {
-                onClick(InfoPlayGame(gameMode, pagerState.currentPage))
-                //onClick(arrayOf(1, pagerState.currentPage))
+                onClick(InfoPlayGame(gameMode, items[pagerState.currentPage].bookNumber))
             },
             modifier = Modifier
                 .align(Alignment.CenterHorizontally),
