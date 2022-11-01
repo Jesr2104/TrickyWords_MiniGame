@@ -33,9 +33,9 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
                 SelectBookScreen(gameModeValue,
                     {
                         navController.currentBackStackEntry?.savedStateHandle?.set(
-                            key = "infoGame", value = it
+                            key = "infoSetGame", value = it
                         )
-                        navController.navigate(NavItem.PlayGame.route)
+                        navController.navigate(NavItem.ChooseOption.route)
                     },
                     { navController.popBackStack() }
                 )
@@ -52,9 +52,9 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
             }
 
             // Windows to chose between: Difficult -> Play / Battle / WordList
-            composable(route = NavItem.PlayGame.route) {
-                PlayGame(
-                    navController.previousBackStackEntry?.savedStateHandle?.get<InfoPlayGame>("infoGame")
+            composable(route = NavItem.ChooseOption.route) {
+                SelectDifficultyScreen(
+                    navController.previousBackStackEntry?.savedStateHandle?.get<InfoPlayGame>("infoSetGame")
                 ) { navController.popBackStack() }
             }
         }
