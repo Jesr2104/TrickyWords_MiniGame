@@ -13,7 +13,8 @@ sealed class NavItem(val baseRoute: String, private val navArgs: List<NavArg> = 
         fun createNavRouter(gameMode: Int) = "$baseRoute/${gameMode}"
     }
 
-    object ChooseOption : NavItem("chooseOption")
+    object SelectDifficulty : NavItem("chooseOption")
+    object PlayGame : NavItem("playGame")
     //object BattleGame : NavItem("battleGame") //MISSING TO BE USED ------>>>
     //object WordList : NavItem("wordList") //MISSING TO BE USED ------>>>
 

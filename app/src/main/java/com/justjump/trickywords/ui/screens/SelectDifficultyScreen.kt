@@ -1,6 +1,7 @@
 package com.justjump.trickywords.ui.screens
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -19,7 +20,14 @@ fun SelectDifficultyScreen(infoGame: InfoPlayGame?, onClickToBack: () -> Unit) {
                 when (infoGame.gameMode) {
                     1 -> {
                         Text(text = "Select Difficulty")
-                        SelectDifficultyComp()
+                        SelectDifficultyComp {
+                            when(it){
+                                1 -> {}
+                                2 -> {}
+                                3 -> {}
+                                4 -> {}
+                            }
+                        }
                     }
                     2 -> {
                         Text(text = "Battle")
