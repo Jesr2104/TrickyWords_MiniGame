@@ -12,7 +12,7 @@ import com.justjump.trickywords.ui.components.playGame.SelectDifficultyComp
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun SelectDifficultyScreen(infoGame: InfoPlayGame?, onClickToBack: () -> Unit) {
+fun SelectDifficultyScreen(infoGame: InfoPlayGame?, onClickPlayGame: (Int) -> Unit, onClickToBack: () -> Unit) {
     Scaffold(topBar = { TopBarComp(onClickToBack = onClickToBack) })
     {
         Column {
@@ -21,12 +21,7 @@ fun SelectDifficultyScreen(infoGame: InfoPlayGame?, onClickToBack: () -> Unit) {
                     1 -> {
                         Text(text = "Select Difficulty")
                         SelectDifficultyComp {
-                            when(it){
-                                1 -> {}
-                                2 -> {}
-                                3 -> {}
-                                4 -> {}
-                            }
+                            onClickPlayGame(it)
                         }
                     }
                     2 -> {

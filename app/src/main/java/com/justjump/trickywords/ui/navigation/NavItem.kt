@@ -12,9 +12,10 @@ sealed class NavItem(val baseRoute: String, private val navArgs: List<NavArg> = 
     object SelectBook : NavItem("selectBook", listOf(NavArg.GameMode)) {
         fun createNavRouter(gameMode: Int) = "$baseRoute/${gameMode}"
     }
-
     object SelectDifficulty : NavItem("chooseOption")
-    object PlayGame : NavItem("playGame")
+    object PlayGame : NavItem("playGame", listOf(NavArg.DifficultyCode)){
+        fun createNavRouter(difficultyMode: Int) = "$baseRoute/${difficultyMode}"
+    }
     //object BattleGame : NavItem("battleGame") //MISSING TO BE USED ------>>>
     //object WordList : NavItem("wordList") //MISSING TO BE USED ------>>>
 
@@ -35,4 +36,5 @@ sealed class NavItem(val baseRoute: String, private val navArgs: List<NavArg> = 
 
 enum class NavArg(val Key: String, val navType: NavType<*>) {
     GameMode("gameMode", NavType.IntType),
+    DifficultyCode("difficultyMode", NavType.IntType)
 }

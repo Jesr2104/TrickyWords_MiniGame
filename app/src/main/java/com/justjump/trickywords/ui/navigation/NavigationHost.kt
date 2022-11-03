@@ -54,12 +54,18 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
             // Windows to chose between: Difficult -> Play / Battle / WordList
             composable(route = NavItem.SelectDifficulty.route) {
                 SelectDifficultyScreen(
-                    navController.previousBackStackEntry?.savedStateHandle?.get<InfoPlayGame>("infoSetGame")
-                ) { navController.popBackStack() }
+                    navController.previousBackStackEntry?.savedStateHandle?.get<InfoPlayGame>("infoSetGame"),
+                    { navController.navigate(NavItem.PlayGame.createNavRouter(it))},
+                    { navController.popBackStack() }
+                )
             }
 
-            composable(route = NavItem.PlayGame.route){
-
+            composable(
+                route = NavItem.PlayGame.route,
+                arguments = NavItem.PlayGame.args
+            ){ backStackEntry ->
+                val difficultyModeValue = backStackEntry.arguments?.getInt(NavArg.DifficultyCode.Key)!!
+                PlayGameScreen(difficultyModeValue)
             }
         }
     }
