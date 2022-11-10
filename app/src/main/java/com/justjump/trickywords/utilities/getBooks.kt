@@ -4,6 +4,15 @@ import com.justjump.trickywords.domain.BookItemMenu
 
 fun getBookList() = listOf(
     BookItemMenu(
+        ISBN = "978-1-782290-95-7",
+        bookName = "Callan Method 6",
+        bookNumber = 6,
+        difficultLevel = "B2 - First",
+        numberOfLesson = 16,
+        rangeLesson = "Lessons 78 - 94",
+        image = "https://firebasestorage.googleapis.com/v0/b/trickyword-justjump.appspot.com/o/BooksCovers%2Fbook-6.jpg?alt=media&token=d9564cc4-877b-4c85-bd38-7a7bf76b3e82"
+    ),
+    BookItemMenu(
         ISBN = "978-1-78229-242-5",
         bookName = "Callan Method 7",
         bookNumber = 7,
