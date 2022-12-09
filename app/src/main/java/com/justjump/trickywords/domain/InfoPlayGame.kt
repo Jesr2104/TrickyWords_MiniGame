@@ -6,5 +6,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class InfoPlayGame(
     val gameMode: Int,
-    val bookNumber: Int
+    val bookNumber: Int,
+    var difficult: Int = 0
 ): Parcelable

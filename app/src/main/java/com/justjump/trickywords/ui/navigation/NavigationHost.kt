@@ -65,7 +65,7 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
                 arguments = NavItem.PlayGame.args
             ){ backStackEntry ->
                 val difficultyModeValue = backStackEntry.arguments?.getInt(NavArg.DifficultyCode.Key)!!
-                PlayGameScreen(difficultyModeValue)
+                PlayGameScreen( difficultyModeValue ) { navController.popBackStack() }
             }
         }
     }
