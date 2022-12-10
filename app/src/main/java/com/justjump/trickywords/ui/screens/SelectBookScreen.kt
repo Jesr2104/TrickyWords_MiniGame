@@ -10,13 +10,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.justjump.trickywords.domain.InfoPlayGame
+import com.justjump.trickywords.domain.SetGame
 import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.components.selectBook.ViewPageBookSelectorComp
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun SelectBookScreen(gameMode: Int, onClick: (InfoPlayGame) -> Unit, onClickToBack: () -> Unit) {
+fun SelectBookScreen(gameMode: Int, onClick: (SetGame) -> Unit, onClickToBack: () -> Unit) {
     Scaffold(topBar = { TopBarComp(onClickToBack = onClickToBack) })
     {
         Column(

@@ -5,13 +5,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import com.justjump.trickywords.domain.InfoPlayGame
+import com.justjump.trickywords.domain.SetGame
 import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.components.playGame.SelectDifficultyComp
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun SelectDifficultyScreen(infoGame: InfoPlayGame?, onClickPlayGame: (Int) -> Unit, onClickToBack: () -> Unit) {
+fun SelectDifficultyScreen(infoGame: SetGame?, onClickPlayGame: (Int) -> Unit, onClickToBack: () -> Unit) {
     Scaffold(topBar = { TopBarComp(onClickToBack = onClickToBack) })
     {
         Column {
