@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.justjump.trickywords.domain.SetGame
 import com.justjump.trickywords.ui.components.home.LogoComp
 import com.justjump.trickywords.ui.components.home.MainOptionsComp
 import com.justjump.trickywords.ui.components.home.TitleAppComp
@@ -13,7 +12,7 @@ import com.justjump.trickywords.ui.components.home.TitleAppComp
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
-    onClick_Play_Battle_WordList: (SetGame) -> Unit,
+    onClick_Play_Battle_WordList: (Int) -> Unit,
     onClickProgress: () -> Unit,
     onClickSettings: () -> Unit,
     onClickClose: () -> Unit

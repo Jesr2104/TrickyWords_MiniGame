@@ -5,6 +5,9 @@ sealed class NavItem(val route: String) {
     // list of routes
     //----------------------------------------------------------------------
     object Home : NavItem("home")
+    object SetGameOption : NavItem("setGameOption")
+
+
     object SelectBook : NavItem("selectBook")
     object SelectDifficulty : NavItem("chooseOption")
     object PlayGame : NavItem("playGame")

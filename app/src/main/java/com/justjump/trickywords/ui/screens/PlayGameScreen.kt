@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import com.justjump.trickywords.domain.SetGame
+import com.justjump.trickywords.domain.datamodels.SetGame
 import com.justjump.trickywords.ui.components.TopBarComp
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")

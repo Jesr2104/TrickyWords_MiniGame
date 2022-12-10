@@ -1,6 +1,6 @@
 package com.justjump.trickywords.utilities
 
-import com.justjump.trickywords.domain.BookItemMenu
+import com.justjump.trickywords.domain.datamodels.BookItemMenu
 
 fun getBookList() = listOf(
     BookItemMenu(

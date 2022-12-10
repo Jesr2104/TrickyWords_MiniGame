@@ -10,7 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.justjump.trickywords.domain.SetGame
+import com.justjump.trickywords.domain.datamodels.SetGame
 import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.components.selectBook.ViewPageBookSelectorComp
 

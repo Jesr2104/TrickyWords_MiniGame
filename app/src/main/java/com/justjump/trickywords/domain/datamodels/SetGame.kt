@@ -1,4 +1,4 @@
-package com.justjump.trickywords.domain
+package com.justjump.trickywords.domain.datamodels
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -8,11 +8,11 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.justjump.trickywords.domain.SetGame
+import com.justjump.trickywords.domain.datamodels.SetGame
 
 @Composable
 fun MainOptionsComp(
-    onClick: (SetGame) -> Unit,
+    onClick: (Int) -> Unit,
     onClickProgress: () -> Unit,
     onClickSettings: () -> Unit,
     onClickClose: () -> Unit
@@ -25,7 +25,7 @@ fun MainOptionsComp(
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = { onClick(SetGame(1)) },
+                onClick = { onClick(1) },
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Play")
@@ -38,7 +38,7 @@ fun MainOptionsComp(
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = { onClick(SetGame(2)) },
+                onClick = { onClick(2) },
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Battle")
@@ -51,7 +51,7 @@ fun MainOptionsComp(
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = { onClick(SetGame(3)) },
+                onClick = { onClick(3) },
                 modifier = Modifier.fillMaxWidth(0.4f)
             ) {
                 Text(text = "Word list")

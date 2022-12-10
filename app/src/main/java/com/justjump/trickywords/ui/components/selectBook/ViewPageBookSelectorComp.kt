@@ -8,7 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
-import com.justjump.trickywords.domain.SetGame
+import com.justjump.trickywords.domain.datamodels.SetGame
 import com.justjump.trickywords.ui.components.ItemBookSelector
 import com.justjump.trickywords.utilities.getBookList
 

@@ -1,4 +1,4 @@
-package com.justjump.trickywords.ui.utilities
+package com.justjump.trickywords.utilities
 
 import androidx.navigation.NavHostController
 
