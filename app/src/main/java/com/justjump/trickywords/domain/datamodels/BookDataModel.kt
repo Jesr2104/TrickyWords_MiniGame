@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class BookItemMenu(
+data class BookDataModel(
     val ISBN: String,
     val bookName: String,
     val bookNumber: Int,

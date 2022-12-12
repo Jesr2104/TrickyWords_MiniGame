@@ -17,7 +17,8 @@ fun SettingsScreen(onClickToBack: () -> Unit) {
         topBar = {
             TopBarComp(
                 title = stringResource(R.string.title_settings),
-                onClickToBack = onClickToBack)
+                onClickToBack = onClickToBack
+            )
         },
     ) {
         Column {

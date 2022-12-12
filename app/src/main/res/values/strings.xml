@@ -1,7 +1,16 @@
 <resources>
+    <!--  Generals Strings  -->
+    <!--  ========================================  -->
     <string name="app_name">TrickyWords</string>
     <string name="exitMessage">"Bye Bye TrickingWord!! "</string>
     <string name="buttonReturn">Button to return</string>
+
+    <!--  Titles of screens  -->
+    <!--  ========================================  -->
+    <string name="title_play">Play</string>
+    <string name="title_battle">Battle</string>
+    <string name="title_wordList">Word List</string>
     <string name="title_settings">Settings</string>
     <string name="title_progress">Progress</string>
+    <!--  ========================================  -->
 </resources>

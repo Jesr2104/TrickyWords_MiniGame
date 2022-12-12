@@ -6,22 +6,38 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.google.accompanist.pager.*
-import com.justjump.trickywords.domain.datamodels.SetGame
 import com.justjump.trickywords.ui.components.ItemBookSelector
+
 import com.justjump.trickywords.utilities.getBookList
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun ViewPageBookSelectorComp(gameMode: Int, onClick: (SetGame) -> Unit) {
+fun ViewPageBookSelectorComp(onClick: (Int) -> Unit) {
     Column(
         modifier = Modifier
-            .fillMaxSize()
+            //.fillMaxSize()
             .padding(0.dp)
     ) {
         val items = getBookList()
         val pagerState = rememberPagerState()
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "Select a Book",
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = 30.sp,
+                modifier = Modifier.padding(10.dp)
+            )
+        }
 
         HorizontalPager(
             count = items.size,
@@ -41,14 +57,9 @@ fun ViewPageBookSelectorComp(gameMode: Int, onClick: (SetGame) -> Unit) {
         )
 
         Button(
-            onClick = {
-                onClick(SetGame(gameMode, items[pagerState.currentPage].bookNumber))
-            },
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
+            onClick = { onClick(items[pagerState.currentPage].bookNumber) },
+            modifier = Modifier.align(Alignment.CenterHorizontally),
             shape = RoundedCornerShape(25)
-        ) {
-            Text("Select book")
-        }
+        ) { Text("Select book") }
     }
 }

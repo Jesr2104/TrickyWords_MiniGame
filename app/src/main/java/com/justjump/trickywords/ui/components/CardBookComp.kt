@@ -15,12 +15,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.justjump.trickywords.domain.datamodels.BookItemMenu
+import com.justjump.trickywords.domain.datamodels.BookDataModel
 import com.justjump.trickywords.ui.theme.trans_dark_grey
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun ItemBookSelector(book: BookItemMenu) {
+fun ItemBookSelector(book: BookDataModel) {
+    // card to show the book information
     Card(
         modifier = Modifier.fillMaxSize(0.85f),
         border = BorderStroke(0.5.dp, Color.White),

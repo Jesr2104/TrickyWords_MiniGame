@@ -19,7 +19,7 @@ fun ProgressScreen(onClickToBack: () -> Unit) {
                 title = stringResource(R.string.title_progress),
                 onClickToBack = onClickToBack
             )
-        },
+        }
     ) {
         Column {
             Row { Text(text = "<- Progress ->") }
