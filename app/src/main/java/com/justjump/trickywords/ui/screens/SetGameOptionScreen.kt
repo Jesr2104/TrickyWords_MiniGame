@@ -72,12 +72,53 @@ fun SetGameOptionScreen(
             }
             2 -> {
                 Column {
+                    // Option to Battle Game.
+                    // 1. Select the book of the play.
                     titleScreen = "Battle"
+                    when (state) {
+                        0 -> {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                ViewPageBookSelectorComp() {
+                                    game.bookNumber = it
+                                    state = 1
+                                }
+                            }
+                        }
+                        1 -> {
+                            // setup ready
+                            state = 0 // reset the state
+                            onclickBattle(game)
+                        }
+                    }
+
                 }
             }
             3 -> {
                 Column {
+                    // Option to Word List.
+                    // 1. Select the book for the Word List.
                     titleScreen = "Word List"
+                    when (state) {
+                        0 -> {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                ViewPageBookSelectorComp() {
+                                    game.bookNumber = it
+                                    state = 1
+                                }
+                            }
+                        }
+                        1-> {
+                            // setup ready
+                            state = 0 // reset the state
+                            onclickWordList(game)
+                        }
+                    }
                 }
             }
         }
