@@ -1,4 +1,4 @@
-package com.justjump.trickywords.ui.components.playGame
+package com.justjump.trickywords.ui.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SelectDifficultyComp(result: (Int) -> Unit) {
+fun DifficultySelectorComp(result: (Int) -> Unit) {
     Column {
         // main text on the form
         Row(

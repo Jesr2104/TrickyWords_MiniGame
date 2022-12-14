@@ -8,8 +8,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import com.justjump.trickywords.domain.datamodels.GameDataModel
 import com.justjump.trickywords.ui.components.TopBarComp
-import com.justjump.trickywords.ui.components.playGame.SelectDifficultyComp
-import com.justjump.trickywords.ui.components.selectBook.ViewPageBookSelectorComp
+import com.justjump.trickywords.ui.components.DifficultySelectorComp
+import com.justjump.trickywords.ui.components.BookSelectorComp
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -45,7 +45,7 @@ fun SetGameOptionScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                ViewPageBookSelectorComp() {
+                                BookSelectorComp() {
                                     game.bookNumber = it
                                     state = 1
                                 }
@@ -56,7 +56,7 @@ fun SetGameOptionScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                SelectDifficultyComp {
+                                DifficultySelectorComp {
                                     game.difficult = it
                                     state = 2
                                 }
@@ -81,7 +81,7 @@ fun SetGameOptionScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                ViewPageBookSelectorComp() {
+                                BookSelectorComp() {
                                     game.bookNumber = it
                                     state = 1
                                 }
@@ -107,7 +107,7 @@ fun SetGameOptionScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                ViewPageBookSelectorComp() {
+                                BookSelectorComp() {
                                     game.bookNumber = it
                                     state = 1
                                 }

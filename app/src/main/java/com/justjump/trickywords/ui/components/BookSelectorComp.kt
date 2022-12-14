@@ -1,4 +1,4 @@
-package com.justjump.trickywords.ui.components.selectBook
+package com.justjump.trickywords.ui.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,13 +11,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.pager.*
-import com.justjump.trickywords.ui.components.ItemBookSelector
 
 import com.justjump.trickywords.utilities.getBookList
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun ViewPageBookSelectorComp(onClick: (Int) -> Unit) {
+fun BookSelectorComp(onClick: (Int) -> Unit) {
     Column(
         modifier = Modifier
             //.fillMaxSize()
@@ -45,7 +44,7 @@ fun ViewPageBookSelectorComp(onClick: (Int) -> Unit) {
         ) { currentPage ->
             Column {
                 // show the selector on the book
-                ItemBookSelector(items[currentPage])
+                CardBookComp(items[currentPage])
             }
         }
 

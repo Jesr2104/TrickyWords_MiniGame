@@ -20,7 +20,7 @@ import com.justjump.trickywords.ui.theme.trans_dark_grey
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun ItemBookSelector(book: BookDataModel) {
+fun CardBookComp(book: BookDataModel) {
     // card to show the book information
     Card(
         modifier = Modifier.fillMaxSize(0.85f),
