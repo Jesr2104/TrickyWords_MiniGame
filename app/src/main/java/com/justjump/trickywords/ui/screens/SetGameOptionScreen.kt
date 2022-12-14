@@ -45,7 +45,7 @@ fun SetGameOptionScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                BookSelectorComp() {
+                                BookSelectorComp {
                                     game.bookNumber = it
                                     state = 1
                                 }
@@ -81,7 +81,7 @@ fun SetGameOptionScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                BookSelectorComp() {
+                                BookSelectorComp {
                                     game.bookNumber = it
                                     state = 1
                                 }
@@ -107,7 +107,7 @@ fun SetGameOptionScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.Center
                             ) {
-                                BookSelectorComp() {
+                                BookSelectorComp {
                                     game.bookNumber = it
                                     state = 1
                                 }
