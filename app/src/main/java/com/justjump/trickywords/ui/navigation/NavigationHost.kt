@@ -52,8 +52,11 @@ fun NavigationHost(navController: NavHostController, onClickClose: () -> Unit) {
             // Play Screen
             composable(route = NavItem.Play.route) {
                 val setGame = navController.passOnDataGet<GameDataModel>(KEY_SET_GAME)
-                PlayScreen(setGame)
-                { navController.popBackStack() }
+                PlayScreen(
+                    setGame,
+                    { navController.popBackStack(NavItem.Home.route, false) },
+                    { navController.popBackStack() }
+                )
             }
 
             // Battle Screen

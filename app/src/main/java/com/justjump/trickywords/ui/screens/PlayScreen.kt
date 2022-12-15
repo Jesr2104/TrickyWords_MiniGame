@@ -17,7 +17,7 @@ import com.justjump.trickywords.ui.screens.viewmodels.PlayViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun PlayScreen(gameSetup: GameDataModel?, onClickToBack: () -> Unit) {
+fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: () -> Unit) {
 
     // instance of the viewModel
     val viewModel = hiltViewModel<PlayViewModel>()
@@ -25,6 +25,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onClickToBack: () -> Unit) {
     // state variables to update the UI
     // ----------------------------------------------------------------
     val stepsGame: Int by viewModel.stepsGame.observeAsState(initial = 0)
+    val countdown: String by viewModel.countdownStart.observeAsState(initial = "6")
     // ----------------------------------------------------------------
 
     Scaffold(
@@ -40,11 +41,10 @@ fun PlayScreen(gameSetup: GameDataModel?, onClickToBack: () -> Unit) {
                 when (stepsGame) {
                     // set the game an start timer.
                     0 -> {
-                        Text("Step 1")
-                        Button(
-                            onClick = {viewModel.changeStepsGame(1)}
-                        ){
-                            Text("Jump Step")
+                        viewModel.startCountdown()
+                        Text(countdown)
+                        if (countdown == "Start"){
+                            viewModel.changeStepsGame(1)
                         }
                     }
                     // execute the game.
@@ -60,13 +60,15 @@ fun PlayScreen(gameSetup: GameDataModel?, onClickToBack: () -> Unit) {
                     2 -> {
                         Text("Step 3")
                         Button(
-                            onClick = {viewModel.changeStepsGame(3)}
+                            onClick = {
+                                viewModel.changeStepsGame(3)
+                                onclick()
+                            }
                         ){
                             Text("Exit")
                         }
 
                         //TODO("We need a button to leave back to the main menu")
-                        onClickToBack()
                     }
                 }
             }

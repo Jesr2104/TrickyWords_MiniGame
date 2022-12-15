@@ -57,15 +57,11 @@ fun SetGameOptionScreen(
                                 horizontalArrangement = Arrangement.Center
                             ) {
                                 DifficultySelectorComp {
+                                    state = 0
                                     game.difficult = it
-                                    state = 2
+                                    onclickPlay(game)
                                 }
                             }
-                        }
-                        2 -> {
-                            // setup ready
-                            state = 0 // reset the state
-                            onclickPlay(game)
                         }
                     }
                 }
@@ -82,18 +78,13 @@ fun SetGameOptionScreen(
                                 horizontalArrangement = Arrangement.Center
                             ) {
                                 BookSelectorComp {
+                                    state = 0
                                     game.bookNumber = it
-                                    state = 1
+                                    onclickBattle(game)
                                 }
                             }
                         }
-                        1 -> {
-                            // setup ready
-                            state = 0 // reset the state
-                            onclickBattle(game)
-                        }
                     }
-
                 }
             }
             3 -> {
@@ -108,15 +99,11 @@ fun SetGameOptionScreen(
                                 horizontalArrangement = Arrangement.Center
                             ) {
                                 BookSelectorComp {
+                                    state = 0
                                     game.bookNumber = it
-                                    state = 1
+                                    onclickWordList(game)
                                 }
                             }
-                        }
-                        1-> {
-                            // setup ready
-                            state = 0 // reset the state
-                            onclickWordList(game)
                         }
                     }
                 }
