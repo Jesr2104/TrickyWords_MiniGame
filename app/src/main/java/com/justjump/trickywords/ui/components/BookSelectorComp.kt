@@ -11,18 +11,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.pager.*
-
-import com.justjump.trickywords.utilities.getBookList
+import com.justjump.trickywords.utilities.getFiltersBooksList
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun BookSelectorComp(onClick: (Int) -> Unit) {
     Column(
         modifier = Modifier
-            //.fillMaxSize()
+            .fillMaxSize()
             .padding(0.dp)
     ) {
-        val items = getBookList()
+        val items = getFiltersBooksList()
         val pagerState = rememberPagerState()
 
         Row(

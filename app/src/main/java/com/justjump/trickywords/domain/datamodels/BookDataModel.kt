@@ -11,7 +11,8 @@ data class BookDataModel(
     val difficultLevel: String,
     val numberOfLesson: Int,
     val rangeLesson: String,
-    val image: String
+    val image: String,
+    var enable: Boolean = true
 ): Parcelable
 
 
