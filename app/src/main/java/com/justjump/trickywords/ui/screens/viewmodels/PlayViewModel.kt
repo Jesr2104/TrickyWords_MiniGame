@@ -5,11 +5,15 @@ import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.justjump.trickywords.domain.datamodels.GameDataModel
+import com.justjump.trickywords.domain.usecases.GetPlayUsecases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class PlayViewModel @Inject constructor() : ViewModel() {
+class PlayViewModel @Inject constructor(
+    private var getPlayUsecases: GetPlayUsecases
+) : ViewModel() {
 
     private val _stepsGame = MutableLiveData<Int>()
     val stepsGame: LiveData<Int> = _stepsGame
@@ -33,10 +37,17 @@ class PlayViewModel @Inject constructor() : ViewModel() {
             } else {
                 _countdownStart.value = "$_count"
             }
-            if (_count == -1){
+            if (_count == -1) {
                 onFinish()
             }
             _count--
-        },1000)
+        }, 1000)
+    }
+
+    // function to get the play game questions to start
+    fun startQuest(gameSetup: GameDataModel?) {
+        getPlayUsecases.invoke(gameSetup){
+
+        }
     }
 }
