@@ -1,11 +1,16 @@
 package com.justjump.trickywords.domain.usecases
 
-import com.justjump.trickywords.data.GetPlayRepository
+import android.util.Log
+import com.justjump.trickywords.data.repository.GetPlayRepository
+import com.justjump.trickywords.domain.datamodels.BookItem
 import com.justjump.trickywords.domain.datamodels.GameDataModel
 import javax.inject.Inject
 
 class GetPlayUsecases @Inject constructor(
     private val getPlayRepository: GetPlayRepository
 ) {
-    fun invoke(gameSetup: GameDataModel?, onResult: (ArrayList<String>) -> Unit) = getPlayRepository.getPlayGame(gameSetup, onResult)
+    suspend fun invoke(gameSetup: GameDataModel?, onResult: (ArrayList<BookItem>) -> Unit){
+        getPlayRepository.getPlayGame(gameSetup, onResult)
+    }
+
 }

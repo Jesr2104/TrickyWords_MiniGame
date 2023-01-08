@@ -14,5 +14,3 @@ data class BookDataModel(
     val image: String,
     var enable: Boolean = true
 ): Parcelable
-
-

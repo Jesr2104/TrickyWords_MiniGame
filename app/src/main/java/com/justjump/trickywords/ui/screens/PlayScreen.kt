@@ -2,6 +2,8 @@ package com.justjump.trickywords.ui.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -12,10 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.justjump.trickywords.R
+import com.justjump.trickywords.domain.datamodels.BookItem
 import com.justjump.trickywords.domain.datamodels.GameDataModel
 import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.screens.viewmodels.PlayViewModel
@@ -31,6 +33,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
     // ----------------------------------------------------------------
     val stepsGame: Int by viewModel.stepsGame.observeAsState(initial = 0)
     val countdown: String by viewModel.countdownStart.observeAsState(initial = "3")
+    val booksList: ArrayList<BookItem> by viewModel.booksWords.observeAsState(initial = arrayListOf<BookItem>())
     // ----------------------------------------------------------------
 
     Scaffold(
@@ -68,6 +71,14 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                     }
                     // execute the game.
                     1 -> {
+                        viewModel.startQuest(gameSetup)
+
+                        LazyColumn {
+                            items(booksList) {
+                                Text(it.trickyWord)
+                            }
+                        }
+
                         Text("Step 2")
                         Button(
                             onClick = { viewModel.changeStepsGame(2) }

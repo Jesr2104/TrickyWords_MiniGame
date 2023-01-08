@@ -2,12 +2,20 @@ package com.justjump.trickywords.ui.screens.viewmodels
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.justjump.trickywords.domain.datamodels.BookItem
 import com.justjump.trickywords.domain.datamodels.GameDataModel
 import com.justjump.trickywords.domain.usecases.GetPlayUsecases
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,6 +28,10 @@ class PlayViewModel @Inject constructor(
 
     private val _countdownStart = MutableLiveData<String>()
     val countdownStart: LiveData<String> = _countdownStart
+
+    private val _booksWords = MutableLiveData<ArrayList<BookItem>>()
+    val booksWords: LiveData<ArrayList<BookItem>> = _booksWords
+
 
     private var _count = 3
 
@@ -45,9 +57,9 @@ class PlayViewModel @Inject constructor(
     }
 
     // function to get the play game questions to start
-    fun startQuest(gameSetup: GameDataModel?) {
+    fun startQuest(gameSetup: GameDataModel?) = viewModelScope.launch {
         getPlayUsecases.invoke(gameSetup){
-
+           _booksWords.postValue(it)
         }
     }
 }
