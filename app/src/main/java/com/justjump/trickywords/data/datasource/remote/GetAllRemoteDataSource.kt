@@ -15,7 +15,7 @@ class GetAllRemoteDataSource @Inject constructor(
         onResult: (ArrayList<BookItem>) -> Unit
     ) {
         return withContext(Dispatchers.IO) {
-            val response = apiService.getBook()
+            val response = apiService.getBookSpec(gameSetup!!.bookNumber)
             val result = response.body() ?: arrayListOf()
             onResult(result)
         }

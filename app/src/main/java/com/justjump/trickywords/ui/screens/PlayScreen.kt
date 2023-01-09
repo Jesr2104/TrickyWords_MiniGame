@@ -7,8 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -28,6 +27,9 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
 
     // instance of the viewModel
     val viewModel = hiltViewModel<PlayViewModel>()
+
+    // state vars
+    var count by remember { mutableStateOf(0) }
 
     // state variables to update the UI
     // ----------------------------------------------------------------
@@ -49,6 +51,12 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                 when (stepsGame) {
                     // set the game an start timer.
                     0 -> {
+                        // Call to request of the API for the questions
+                        // this code use the countdown to get the request ready
+                        // ----------------------------------------------
+                        viewModel.startQuest(gameSetup)
+                        // ----------------------------------------------
+
                         viewModel.startCountdown() {
                             viewModel.changeStepsGame(1)
                         }
@@ -71,7 +79,51 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                     }
                     // execute the game.
                     1 -> {
-                        viewModel.startQuest(gameSetup)
+                        Column {
+                            Row {
+                                Text("${count + 1} / ${booksList.size - 1}")
+                            }
+                            Row {
+                                Text("Question: ${booksList[count].questions[0].question}")
+                            }
+                            Row { Text("Countdown") }
+                            Row {
+                                Column {
+                                    Row {
+                                        Button(
+                                            onClick = { },
+                                            modifier = Modifier.fillMaxWidth(0.4f)
+                                        ) {
+                                            Text(text = booksList[count].questions[0].optionA)
+                                        }
+                                    }
+                                    Row {
+                                        Button(
+                                            onClick = { },
+                                            modifier = Modifier.fillMaxWidth(0.4f)
+                                        ) {
+                                            Text(text = booksList[count].questions[0].optionB)
+                                        }
+                                    }
+                                    Row {
+                                        Button(
+                                            onClick = { },
+                                            modifier = Modifier.fillMaxWidth(0.4f)
+                                        ) {
+                                            Text(text = booksList[count].questions[0].optionC)
+                                        }
+                                    }
+                                    Row {
+                                        Button(
+                                            onClick = { },
+                                            modifier = Modifier.fillMaxWidth(0.4f)
+                                        ) {
+                                            Text(text = booksList[count].questions[0].correctAnswer)
+                                        }
+                                    }
+                                }
+                            }
+                        }
 
                         LazyColumn {
                             items(booksList) {
