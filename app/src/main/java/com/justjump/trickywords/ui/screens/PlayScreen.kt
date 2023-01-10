@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.justjump.trickywords.R
-import com.justjump.trickywords.domain.datamodels.BookItem
+import com.justjump.trickywords.domain.datamodels.WordDataModel
 import com.justjump.trickywords.domain.datamodels.GameDataModel
 import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.screens.viewmodels.PlayViewModel
@@ -35,7 +35,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
     // ----------------------------------------------------------------
     val stepsGame: Int by viewModel.stepsGame.observeAsState(initial = 0)
     val countdown: String by viewModel.countdownStart.observeAsState(initial = "3")
-    val booksList: ArrayList<BookItem> by viewModel.booksWords.observeAsState(initial = arrayListOf<BookItem>())
+    val booksList: ArrayList<WordDataModel> by viewModel.booksWords.observeAsState(initial = arrayListOf<WordDataModel>())
     // ----------------------------------------------------------------
 
     Scaffold(
@@ -79,58 +79,22 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                     }
                     // execute the game.
                     1 -> {
-                        Column {
-                            Row {
-                                Text("${count + 1} / ${booksList.size - 1}")
+
+                        if(booksList.size == 0){
+                            Column {
+                                Row {
+                                    Text("not enough words have been found for this test try another book!!")
+                                }
                             }
-                            Row {
-                                Text("Question: ${booksList[count].questions[0].question}")
-                            }
-                            Row { Text("Countdown") }
-                            Row {
-                                Column {
-                                    Row {
-                                        Button(
-                                            onClick = { },
-                                            modifier = Modifier.fillMaxWidth(0.4f)
-                                        ) {
-                                            Text(text = booksList[count].questions[0].optionA)
-                                        }
-                                    }
-                                    Row {
-                                        Button(
-                                            onClick = { },
-                                            modifier = Modifier.fillMaxWidth(0.4f)
-                                        ) {
-                                            Text(text = booksList[count].questions[0].optionB)
-                                        }
-                                    }
-                                    Row {
-                                        Button(
-                                            onClick = { },
-                                            modifier = Modifier.fillMaxWidth(0.4f)
-                                        ) {
-                                            Text(text = booksList[count].questions[0].optionC)
-                                        }
-                                    }
-                                    Row {
-                                        Button(
-                                            onClick = { },
-                                            modifier = Modifier.fillMaxWidth(0.4f)
-                                        ) {
-                                            Text(text = booksList[count].questions[0].correctAnswer)
-                                        }
-                                    }
+                        } else {
+                            LazyColumn {
+                                items(booksList) {
+                                    Text(it.trickyWord)
                                 }
                             }
                         }
 
-                        LazyColumn {
-                            items(booksList) {
-                                Text(it.trickyWord)
-                            }
-                        }
-
+                        Text("")
                         Text("Step 2")
                         Button(
                             onClick = { viewModel.changeStepsGame(2) }

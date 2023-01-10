@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.justjump.trickywords.domain.datamodels.BookItem
+import com.justjump.trickywords.domain.datamodels.WordDataModel
 import com.justjump.trickywords.domain.datamodels.GameDataModel
 import com.justjump.trickywords.domain.usecases.GetPlayUsecases
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,8 +24,8 @@ class PlayViewModel @Inject constructor(
     private val _countdownStart = MutableLiveData<String>()
     val countdownStart: LiveData<String> = _countdownStart
 
-    private val _booksWords = MutableLiveData<ArrayList<BookItem>>()
-    val booksWords: LiveData<ArrayList<BookItem>> = _booksWords
+    private val _booksWords = MutableLiveData<ArrayList<WordDataModel>>()
+    val booksWords: LiveData<ArrayList<WordDataModel>> = _booksWords
 
 
     private var _count = 3

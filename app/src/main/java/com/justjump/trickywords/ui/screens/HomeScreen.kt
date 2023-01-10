@@ -5,9 +5,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.justjump.trickywords.ui.components.home.LogoComp
 import com.justjump.trickywords.ui.components.home.MainOptionsComp
 import com.justjump.trickywords.ui.components.home.TitleAppComp
+import com.justjump.trickywords.ui.screens.viewmodels.HomeViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -17,6 +19,12 @@ fun HomeScreen(
     onClickSettings: () -> Unit,
     onClickClose: () -> Unit
 ) {
+    // instance of the viewModel
+    val viewModel = hiltViewModel<HomeViewModel>()
+
+    // call the function to check if any book was disable
+    viewModel.checkAvtiveBooks()
+
     Scaffold {
         Column(
             modifier = Modifier.fillMaxSize(),

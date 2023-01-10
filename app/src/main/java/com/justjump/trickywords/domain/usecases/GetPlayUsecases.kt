@@ -1,14 +1,14 @@
 package com.justjump.trickywords.domain.usecases
 
 import com.justjump.trickywords.data.repository.GetPlayRepository
-import com.justjump.trickywords.domain.datamodels.BookItem
+import com.justjump.trickywords.domain.datamodels.WordDataModel
 import com.justjump.trickywords.domain.datamodels.GameDataModel
 import javax.inject.Inject
 
 class GetPlayUsecases @Inject constructor(
     private val getPlayRepository: GetPlayRepository
 ) {
-    suspend fun invoke(gameSetup: GameDataModel?, onResult: (ArrayList<BookItem>) -> Unit){
+    suspend fun invoke(gameSetup: GameDataModel?, onResult: (ArrayList<WordDataModel>) -> Unit){
         getPlayRepository.getPlayGame(gameSetup){
             // here need to happen all the proccess to preparate the test
             // 1. chose {the quantity on the const now 2 for test} word

@@ -1,7 +1,7 @@
 package com.justjump.trickywords.data.datasource.remote
 
 import com.justjump.trickywords.di.ApiService
-import com.justjump.trickywords.domain.datamodels.BookItem
+import com.justjump.trickywords.domain.datamodels.WordDataModel
 import com.justjump.trickywords.domain.datamodels.GameDataModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -12,7 +12,7 @@ class GetAllRemoteDataSource @Inject constructor(
 ) {
     suspend fun getTrickyWordOfBook(
         gameSetup: GameDataModel?,
-        onResult: (ArrayList<BookItem>) -> Unit
+        onResult: (ArrayList<WordDataModel>) -> Unit
     ) {
         return withContext(Dispatchers.IO) {
             val response = apiService.getBookSpec(gameSetup!!.bookNumber)
