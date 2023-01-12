@@ -1,6 +1,7 @@
 package com.justjump.trickywords.di
 
-import com.justjump.trickywords.utilities.GeneralConstants
+import com.justjump.trickywords.utilities.BooksInformation
+import com.justjump.trickywords.utilities.GeneralSetting
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,5 +14,9 @@ object GeneralModule {
 
     @Singleton
     @Provides
-    fun provide() = GeneralConstants.NUMBER_OF_QUESTIONS_PLAY
+    fun provide() = GeneralSetting.nQuetionsPlay
+
+    @Singleton
+    @Provides
+    fun provideBooksInformation() = BooksInformation.getBooksInformationList()
 }

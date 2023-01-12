@@ -35,7 +35,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
     // ----------------------------------------------------------------
     val stepsGame: Int by viewModel.stepsGame.observeAsState(initial = 0)
     val countdown: String by viewModel.countdownStart.observeAsState(initial = "3")
-    val booksList: ArrayList<WordDataModel> by viewModel.booksWords.observeAsState(initial = arrayListOf<WordDataModel>())
+    val booksList: ArrayList<WordDataModel> by viewModel.booksWords.observeAsState(initial = arrayListOf())
     // ----------------------------------------------------------------
 
     Scaffold(

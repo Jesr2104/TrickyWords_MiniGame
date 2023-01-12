@@ -16,11 +16,6 @@ class GetPlayUsecases @Inject constructor(
             // 1. chose 10 questions from the word chosen before
             // 3. inverte a prepare the
 
-
-
-
-
-
             onResult(it)
         }
     }

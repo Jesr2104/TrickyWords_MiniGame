@@ -1,5 +1,6 @@
 package com.justjump.trickywords.di
 
+import com.justjump.trickywords.domain.datamodels.BookInfoDataModel
 import com.justjump.trickywords.domain.datamodels.WordDataModel
 import retrofit2.Response
 import retrofit2.http.GET
@@ -17,4 +18,9 @@ interface ApiService {
 
     @GET("/words/{word}")
     suspend fun getWordSpec(@Path("word") word: String): Response<ArrayList<WordDataModel>>
+
+    // function to get the information of the books
+    // (ISBN, name, number, difficult, image, nLesson, rangeLesson, isActive)
+    @GET("/info/books")
+    suspend fun getBooksInformation(): Response<ArrayList<BookInfoDataModel>>
 }

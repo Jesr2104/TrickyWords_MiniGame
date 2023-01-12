@@ -11,7 +11,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.pager.*
-import com.justjump.trickywords.utilities.getFiltersBooksList
+import com.justjump.trickywords.utilities.BooksInformation.getFiltersBooksList
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable

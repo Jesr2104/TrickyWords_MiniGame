@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PlayViewModel @Inject constructor(
-    private var getPlayUsecases: GetPlayUsecases
+    private val getPlayUsecases: GetPlayUsecases
 ) : ViewModel() {
 
     private val _stepsGame = MutableLiveData<Int>()

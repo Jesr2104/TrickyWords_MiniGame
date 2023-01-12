@@ -15,12 +15,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.justjump.trickywords.domain.datamodels.BookInfomationDataModel
+import com.justjump.trickywords.domain.datamodels.BookInfoDataModel
 import com.justjump.trickywords.ui.theme.trans_dark_grey
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun CardBookComp(book: BookInfomationDataModel) {
+fun CardBookComp(book: BookInfoDataModel) {
     // card to show the book information
     Card(
         modifier = Modifier.fillMaxSize(0.85f),
@@ -52,7 +52,7 @@ fun CardBookComp(book: BookInfomationDataModel) {
                     )
                     Spacer(modifier = Modifier.height(2.dp))
                     Text(
-                        text = "Lessons #${book.numberOfLesson}",
+                        text = "Lessons #${book.nLesson}",
                         fontSize = 10.sp,
                         fontWeight = FontWeight.SemiBold,
                         modifier = Modifier
@@ -79,7 +79,7 @@ fun CardBookComp(book: BookInfomationDataModel) {
                     )
                     Spacer(modifier = Modifier.height(3.dp))
                     Text(
-                        text = book.difficultLevel,
+                        text = book.difficulty,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.SemiBold,
                         modifier = Modifier

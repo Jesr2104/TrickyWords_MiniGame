@@ -7,10 +7,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class GetAllRemoteDataSource @Inject constructor(
+class BooksRemoteDataSource @Inject constructor(
     private val apiService: ApiService
 ) {
-    suspend fun getTrickyWordOfBook(
+    suspend fun getWordsFromABook(
         gameSetup: GameDataModel?,
         onResult: (ArrayList<WordDataModel>) -> Unit
     ) {
