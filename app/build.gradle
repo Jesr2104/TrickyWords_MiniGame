@@ -55,6 +55,7 @@ android {
 dependencies {
     // Unit test
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'io.mockk::mockk:1.13.0'
     androidTestImplementation 'junit:junit:4.13.2'
     implementation 'androidx.test.ext:junit-ktx:1.1.5'
 

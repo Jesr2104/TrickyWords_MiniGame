@@ -9,7 +9,7 @@ data class WordDataModel(
     val idTrickyWord: String,
     val nBook: Int,
     val nLesson: Int,
-    val questionDataModels: List<QuestionDataModel>,
+    val questions: List<QuestionDataModel>,
     val trickyWord: String,
     val type: Int
 ): Parcelable
