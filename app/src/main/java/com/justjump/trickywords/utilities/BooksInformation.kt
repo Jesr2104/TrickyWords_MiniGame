@@ -36,7 +36,7 @@ object BooksInformation {
         booksInformation.clear()
     }
 
-    fun getDefaultInfo(): ArrayList<BookInfoDataModel> {
+    private fun getDefaultInfo(): ArrayList<BookInfoDataModel> {
         return arrayListOf(
             BookInfoDataModel(
                 ISBN = "978-1-78229-000-1",

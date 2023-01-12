@@ -1,5 +1,9 @@
 package com.justjump.trickywords.domain.datamodels
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class WordDataModel(
     val difficulty: Int,
     val idTrickyWord: String,
@@ -8,4 +12,4 @@ data class WordDataModel(
     val questionDataModels: List<QuestionDataModel>,
     val trickyWord: String,
     val type: Int
-)
+): Parcelable

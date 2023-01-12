@@ -22,23 +22,23 @@ class GetPlayUsecases @Inject constructor(
 
     //***********************************************************************************
     //***********************************************************************************
-    fun solvertodivide() {
-
-        // dont forget to import this library
-        //import kotlin.math.*
-
-        var numberOfQuestions = 12
-        var wordsNotFrecuentPercent = 0.35
-        var wordsRandomPercent = 0.65
-
-        var wordsNotFrecuent = numberOfQuestions * wordsNotFrecuentPercent
-        var wordsRandom = numberOfQuestions * wordsRandomPercent
-
-        print("Word Not Frecuents: " + Math.round(wordsNotFrecuent))
-        println()
-        print("Word Random: " + Math.round(wordsRandom))
-
-    }
+//    fun solvertodivide() {
+//
+//        // dont forget to import this library
+//        //import kotlin.math.*
+//
+//        var numberOfQuestions = 12
+//        var wordsNotFrecuentPercent = 0.35
+//        var wordsRandomPercent = 0.65
+//
+//        var wordsNotFrecuent = numberOfQuestions * wordsNotFrecuentPercent
+//        var wordsRandom = numberOfQuestions * wordsRandomPercent
+//
+//        print("Word Not Frecuents: " + Math.round(wordsNotFrecuent))
+//        println()
+//        print("Word Random: " + Math.round(wordsRandom))
+//
+//    }
     //***********************************************************************************
 
 }

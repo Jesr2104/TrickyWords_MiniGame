@@ -57,7 +57,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                         viewModel.startQuest(gameSetup)
                         // ----------------------------------------------
 
-                        viewModel.startCountdown() {
+                        viewModel.startCountdown {
                             viewModel.changeStepsGame(1)
                         }
                         Column(
