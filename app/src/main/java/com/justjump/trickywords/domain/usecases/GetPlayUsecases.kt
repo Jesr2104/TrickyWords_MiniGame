@@ -11,6 +11,7 @@ class GetPlayUsecases @Inject constructor(
     suspend fun invoke(gameSetup: GameDataModel?, onResult: (ArrayList<WordDataModel>) -> Unit){
         getPlayRepository.getPlayGame(gameSetup){
             // here need to happen all the proccess to preparate the test
+            // seleccione la dificultad
             // 1. chose {the quantity on the const now 2 for test} word
             // 2. be sure this 2 questions are 10 with the word least used by the user
             // 1. chose 10 questions from the word chosen before
