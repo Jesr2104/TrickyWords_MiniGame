@@ -1,5 +1,6 @@
 package com.justjump.trickywords.domain.usecases
 
+import android.util.Log
 import com.justjump.trickywords.data.repository.GetPlayRepository
 import com.justjump.trickywords.domain.datamodels.WordDataModel
 import com.justjump.trickywords.domain.datamodels.GameDataModel
@@ -8,14 +9,22 @@ import javax.inject.Inject
 class GetPlayUsecases @Inject constructor(
     private val getPlayRepository: GetPlayRepository
 ) {
+    companion object{
+        // this need to be exporter outside
+        var questionNumber = 8
+    }
     suspend fun invoke(gameSetup: GameDataModel?, onResult: (ArrayList<WordDataModel>) -> Unit){
         getPlayRepository.getPlayGame(gameSetup){
-            // here need to happen all the proccess to preparate the test
-            // seleccione la dificultad
-            // 1. chose {the quantity on the const now 2 for test} word
-            // 2. be sure this 2 questions are 10 with the word least used by the user
-            // 1. chose 10 questions from the word chosen before
-            // 3. inverte a prepare the
+            // Order tasks
+            // 0. selected just the words with the difficulty selected
+            // 1. selected the number of the questions {numberOfQuestions}
+            //      35% - Words not frecuent used
+            //      65% - Words random
+            // 2. select the questions that the test will use
+            //      a. create a class to store all the questions
+            // 3. return the new list
+
+            Log.e("jesr", "${it}")
 
             onResult(it)
         }
