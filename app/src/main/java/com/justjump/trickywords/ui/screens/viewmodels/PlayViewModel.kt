@@ -25,8 +25,8 @@ class PlayViewModel @Inject constructor(
     private val _countdownStart = MutableLiveData<String>()
     val countdownStart: LiveData<String> = _countdownStart
 
-    private val _booksWords = MutableLiveData<ArrayList<WordDataModel>>()
-    val booksWords: LiveData<ArrayList<WordDataModel>> = _booksWords
+    private val _booksWords = MutableLiveData<ArrayList<GetPlayUsecases.Question>>()
+    val booksWords: LiveData<ArrayList<GetPlayUsecases.Question>> = _booksWords
 
     private var _count = 3
 

@@ -18,6 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.justjump.trickywords.R
 import com.justjump.trickywords.domain.datamodels.WordDataModel
 import com.justjump.trickywords.domain.datamodels.GameDataModel
+import com.justjump.trickywords.domain.usecases.GetPlayUsecases
 import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.screens.viewmodels.PlayViewModel
 
@@ -29,13 +30,15 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
     val viewModel = hiltViewModel<PlayViewModel>()
 
     // var to control the once execution of the code
-    var checkExecute: Boolean by remember { mutableStateOf( true ) }
+    var checkExecute: Boolean by remember { mutableStateOf(true) }
 
     // state variables to update the UI
     // ----------------------------------------------------------------
     val stepsGame: Int by viewModel.stepsGame.observeAsState(initial = 0)
     val countdown: String by viewModel.countdownStart.observeAsState(initial = "3")
-    val booksList: ArrayList<WordDataModel> by viewModel.booksWords.observeAsState(initial = arrayListOf())
+    val booksList: ArrayList<GetPlayUsecases.Question> by viewModel.booksWords.observeAsState(
+        initial = arrayListOf()
+    )
     // ----------------------------------------------------------------
 
     Scaffold(
@@ -54,7 +57,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                         // Call to request of the API for the questions
                         // this code use the countdown to get the request ready
                         // ----------------------------------------------
-                        if (checkExecute){
+                        if (checkExecute) {
                             viewModel.startQuest(gameSetup)
                             checkExecute = false
                         }
@@ -82,7 +85,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                     }
                     // execute the game.
                     1 -> {
-                        if(booksList.size == 0){
+                        if (booksList.size == 0) {
                             Column {
                                 Row {
                                     Text("not enough words have been found for this test try another book!!")
@@ -91,7 +94,23 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                         } else {
                             LazyColumn {
                                 items(booksList) {
-                                    Text(it.trickyWord)
+                                    Column {
+                                        Row {
+                                            Text("Trickyword: " + it.trickyWord)
+                                            Text("")
+                                        }
+                                        Row {
+                                            Text("Question: " + it.question)
+                                            Text("")
+                                            Text("")
+                                        }
+                                        Row { Text("Option A: " + it.options[0]) }
+                                        Row { Text("Option B: " + it.options[1]) }
+                                        Row { Text("Option C: " + it.options[2]) }
+                                        Row { Text("Option D: " + it.options[3]) }
+                                        Text("")
+                                        Text("")
+                                    }
                                 }
                             }
                         }
