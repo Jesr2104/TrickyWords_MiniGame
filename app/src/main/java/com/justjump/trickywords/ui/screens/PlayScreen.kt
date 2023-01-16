@@ -28,8 +28,8 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
     // instance of the viewModel
     val viewModel = hiltViewModel<PlayViewModel>()
 
-    // state vars
-    var count by remember { mutableStateOf(0) }
+    // var to control the once execution of the code
+    var checkExecute: Boolean by remember { mutableStateOf( true ) }
 
     // state variables to update the UI
     // ----------------------------------------------------------------
@@ -54,7 +54,10 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                         // Call to request of the API for the questions
                         // this code use the countdown to get the request ready
                         // ----------------------------------------------
-                        viewModel.startQuest(gameSetup)
+                        if (checkExecute){
+                            viewModel.startQuest(gameSetup)
+                            checkExecute = false
+                        }
                         // ----------------------------------------------
 
                         viewModel.startCountdown {
@@ -79,7 +82,6 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                     }
                     // execute the game.
                     1 -> {
-
                         if(booksList.size == 0){
                             Column {
                                 Row {

@@ -2,6 +2,7 @@ package com.justjump.trickywords.ui.screens.viewmodels
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,7 +27,6 @@ class PlayViewModel @Inject constructor(
 
     private val _booksWords = MutableLiveData<ArrayList<WordDataModel>>()
     val booksWords: LiveData<ArrayList<WordDataModel>> = _booksWords
-
 
     private var _count = 3
 

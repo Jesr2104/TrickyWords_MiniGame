@@ -1,5 +1,5 @@
 package com.justjump.trickywords.utilities
 
 object GeneralSetting {
-    var nQuetionsPlay = 2
+    var nQuetionsPlay = 6
 }

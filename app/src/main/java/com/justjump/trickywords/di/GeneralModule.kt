@@ -14,7 +14,7 @@ object GeneralModule {
 
     @Singleton
     @Provides
-    fun provide() = GeneralSetting.nQuetionsPlay
+    fun provideNumberOfQuestionsPlay() = GeneralSetting.nQuetionsPlay
 
     @Singleton
     @Provides
