@@ -18,6 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.justjump.trickywords.R
 import com.justjump.trickywords.domain.datamodels.WordDataModel
 import com.justjump.trickywords.domain.datamodels.GameDataModel
+import com.justjump.trickywords.domain.datamodels.QuestionTestDataModel
 import com.justjump.trickywords.domain.usecases.GetPlayUsecases
 import com.justjump.trickywords.ui.components.TopBarComp
 import com.justjump.trickywords.ui.screens.viewmodels.PlayViewModel
@@ -36,7 +37,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
     // ----------------------------------------------------------------
     val stepsGame: Int by viewModel.stepsGame.observeAsState(initial = 0)
     val countdown: String by viewModel.countdownStart.observeAsState(initial = "3")
-    val booksList: ArrayList<GetPlayUsecases.Question> by viewModel.booksWords.observeAsState(
+    val booksList: ArrayList<QuestionTestDataModel> by viewModel.booksWords.observeAsState(
         initial = arrayListOf()
     )
     // ----------------------------------------------------------------

@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.justjump.trickywords.domain.datamodels.WordDataModel
 import com.justjump.trickywords.domain.datamodels.GameDataModel
+import com.justjump.trickywords.domain.datamodels.QuestionTestDataModel
 import com.justjump.trickywords.domain.usecases.GetPlayUsecases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -25,8 +26,8 @@ class PlayViewModel @Inject constructor(
     private val _countdownStart = MutableLiveData<String>()
     val countdownStart: LiveData<String> = _countdownStart
 
-    private val _booksWords = MutableLiveData<ArrayList<GetPlayUsecases.Question>>()
-    val booksWords: LiveData<ArrayList<GetPlayUsecases.Question>> = _booksWords
+    private val _booksWords = MutableLiveData<ArrayList<QuestionTestDataModel>>()
+    val booksWords: LiveData<ArrayList<QuestionTestDataModel>> = _booksWords
 
     private var _count = 3
 
