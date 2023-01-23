@@ -1,20 +1,23 @@
-# TrickyWords_MiniGame
+# TrickyWords MiniGame:iphone:
 
+This application is a mini game to study the words contained in the Callan method book series, through questions about the words, to help the user learn English and improve and expand their vocabulary.
 
-## Built With
+These applications are written and developed for Android, using the Kotlin programming language, the views are developed in Jetpack compose to create each of the screens, Clean architecture with MVVM has been implemented in the application.
 
-- JavaScript
-- HTML/CSS
-- [Phaser](https://phaser.io/) - HTML5 game framework
+In this flowchart we can see the distribution of windows and the flow of application information in each of its processes.
+<image src="https://github.com/Jesr2104/TrickyWords_MiniGame/blob/495f0d8e859377b0ef6f90a6c99fe3a72c440c5a/resource-image/TrickyWords.png"/>
+### Built With
+- Kotlin
+- JetPack Compose
 
-## Contributing
+### Presentation model
+- Clean Architecture
+- MVVM
 
-Please read [CONTRIBUTING.md](https://github.com/your-username/trickyword-minigame/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+## Authors and other related projects:memo:
 
-## Authors
+- **Jorge Soto Ramos** - *designer and programmer*
 
-- **Your Name** - *Initial work* - [Your Github](https://github.com/your-username)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/your-username/trickyword-minigame/blob/master/LICENSE) file for details.
+- :white_check_mark: <a href="https://github.com/Jesr2104/Trickywords-google-sheets">Trickywords-google-sheets</a>
+- :white_check_mark: <a href="https://github.com/Jesr2104/Trickyword-Ktor-backEnd"> Trickyword-Ktor-backEnd </a>
+- :white_check_mark: <a href="https://github.com/Jesr2104/TrickyWords">TrickyWords</a>
