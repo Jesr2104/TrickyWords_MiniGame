@@ -55,7 +55,7 @@ class PlayViewModel @Inject constructor(
     // function to get the play game questions to start
     fun startQuest(gameSetup: GameDataModel?) = viewModelScope.launch {
         getPlayUsecases.invoke(gameSetup){
-           _booksWords.postValue(it)
+           _booksWords.postValue(it.getQuestionsList())
         }
     }
 }

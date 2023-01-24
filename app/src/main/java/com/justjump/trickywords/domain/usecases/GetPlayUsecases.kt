@@ -2,9 +2,7 @@ package com.justjump.trickywords.domain.usecases
 
 import com.justjump.trickywords.data.repository.GetPlayRepository
 import com.justjump.trickywords.di.GeneralModule.provideNumberOfQuestionsPlay
-import com.justjump.trickywords.domain.datamodels.GameDataModel
-import com.justjump.trickywords.domain.datamodels.QuestionTestDataModel
-import com.justjump.trickywords.domain.datamodels.WordDataModel
+import com.justjump.trickywords.domain.datamodels.*
 import javax.inject.Inject
 
 class GetPlayUsecases @Inject constructor(
@@ -12,7 +10,7 @@ class GetPlayUsecases @Inject constructor(
 ) {
     suspend fun invoke(
         gameSetup: GameDataModel?,
-        onResult: (ArrayList<QuestionTestDataModel>) -> Unit
+        onResult: (PlayGameStructureDataModel) -> Unit
     ) {
         getPlayRepository.getPlayGame(gameSetup) {
             // Order tasks
@@ -31,12 +29,12 @@ class GetPlayUsecases @Inject constructor(
     // function prepare the object for the test to play
     private fun allJobs(
         gameSetup: GameDataModel?, wordDataModels: ArrayList<WordDataModel>
-    ): ArrayList<QuestionTestDataModel> {
+    ): PlayGameStructureDataModel {
         // step 1: filter the data with difficulty selected
         val dataFilter = filterDifficulty(gameSetup, wordDataModels)
 
         // step 2: get the questions and prepare it for the test and return it's
-        return getQuestions(dataFilter)
+        return PlayGameStructureDataModel( questions = getQuestions(dataFilter))
     }
 
     // function to filter the list of the trickwords for the difficulty selectec
