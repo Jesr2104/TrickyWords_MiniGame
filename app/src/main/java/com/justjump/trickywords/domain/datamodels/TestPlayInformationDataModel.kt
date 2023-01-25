@@ -1,7 +1,7 @@
 package com.justjump.trickywords.domain.datamodels
 
 
-data class PlayGameStructureDataModel(
+data class TestPlayInformationDataModel(
     val questions: ArrayList<QuestionTestDataModel>,
     val playerAnswers: List<Int> = arrayListOf()
 ) {

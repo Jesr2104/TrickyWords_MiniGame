@@ -10,7 +10,7 @@ class GetPlayUsecases @Inject constructor(
 ) {
     suspend fun invoke(
         gameSetup: GameDataModel?,
-        onResult: (PlayGameStructureDataModel) -> Unit
+        onResult: (TestPlayInformationDataModel) -> Unit
     ) {
         getPlayRepository.getPlayGame(gameSetup) {
             // Order tasks
@@ -29,12 +29,12 @@ class GetPlayUsecases @Inject constructor(
     // function prepare the object for the test to play
     private fun allJobs(
         gameSetup: GameDataModel?, wordDataModels: ArrayList<WordDataModel>
-    ): PlayGameStructureDataModel {
+    ): TestPlayInformationDataModel {
         // step 1: filter the data with difficulty selected
         val dataFilter = filterDifficulty(gameSetup, wordDataModels)
 
         // step 2: get the questions and prepare it for the test and return it's
-        return PlayGameStructureDataModel( questions = getQuestions(dataFilter))
+        return TestPlayInformationDataModel( questions = getQuestions(dataFilter))
     }
 
     // function to filter the list of the trickwords for the difficulty selectec
