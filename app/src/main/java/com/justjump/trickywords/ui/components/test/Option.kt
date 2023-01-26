@@ -30,10 +30,12 @@ fun Option(option: String, optionNumber: Char) {
         ) {
             Text(
                 text = "Option $optionNumber:",
+                color = Color.Black,
                 fontSize = 9.sp
             )
             Text(
                 text = option,
+                color = Color.Black,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
             )

@@ -1,16 +1,16 @@
 package com.justjump.trickywords.ui.screens
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -129,6 +129,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                                     .padding(5.dp)
                                     .clickable {
                                         numberOfQuestions++
+                                        testPlay.insertAnswer(0)
                                     }
                                 ) {
                                     Option(item.options[0], 'A')
@@ -140,6 +141,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                                     .padding(5.dp)
                                     .clickable {
                                         numberOfQuestions++
+                                        testPlay.insertAnswer(1)
                                     }
                                 ) {
                                     Option(item.options[1], 'B')
@@ -151,6 +153,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                                     .padding(5.dp)
                                     .clickable {
                                         numberOfQuestions++
+                                        testPlay.insertAnswer(2)
                                     }
                                 ) {
                                     Option(item.options[2], 'C')
@@ -162,19 +165,40 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
                                     .padding(5.dp)
                                     .clickable {
                                         numberOfQuestions++
+                                        testPlay.insertAnswer(3)
                                     }
                                 ) {
                                     Option(item.options[3], 'C')
                                 }
                             }
                         } else {
-                            // finish test
+                            // Test finished so jump to show the result
                             viewModel.changeStepsGame(2)
                         }
                     }
                     // result of te game nd show to the player.
                     2 -> {
                         Text("Step 3")
+
+                        val result = testPlay.checkAnswers()
+                        var count = 0
+
+                        LazyColumn {
+                            items(result){
+                                count++
+                                Text("Question #$count result: $it")
+                            }
+                        }
+
+
+
+
+
+
+
+
+
+
                         Button(
                             onClick = {
                                 viewModel.changeStepsGame(3)
