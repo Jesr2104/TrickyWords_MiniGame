@@ -1,6 +1,8 @@
 package com.justjump.trickywords.ui.screens
 
 import android.annotation.SuppressLint
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,7 +12,9 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -22,10 +26,12 @@ import com.justjump.trickywords.domain.datamodels.GameDataModel
 import com.justjump.trickywords.domain.datamodels.QuestionTestDataModel
 import com.justjump.trickywords.domain.datamodels.TestPlayInformationDataModel
 import com.justjump.trickywords.ui.components.TopBarComp
+import com.justjump.trickywords.ui.components.test.AnimationConunter
 import com.justjump.trickywords.ui.components.test.Option
 import com.justjump.trickywords.ui.components.test.Question
 import com.justjump.trickywords.ui.screens.viewmodels.PlayViewModel
 
+@ExperimentalAnimationApi
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: () -> Unit) {
@@ -36,6 +42,7 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
     // var to control the once execution of the code
     var checkExecute: Boolean by remember { mutableStateOf(true) }
     var numberOfQuestions: Int by remember { mutableStateOf(0) }
+    var testTimer: Int by remember { mutableStateOf(0) }
 
     // state variables to update the UI
     // ----------------------------------------------------------------
@@ -117,6 +124,21 @@ fun PlayScreen(gameSetup: GameDataModel?, onclick: () -> Unit, onClickToBack: ()
 
                             // Timer
                             Text("Timer")
+                            testTimer++
+                            Row {
+
+                            }
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                ,
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                AnimationConunter(
+                                    count = testTimer
+                                )
+                            }
+
 
                             // Options
                             Column(
